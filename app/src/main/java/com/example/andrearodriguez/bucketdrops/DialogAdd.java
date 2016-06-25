@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import com.example.andrearodriguez.bucketdrops.beans.Drops;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 /**
  * Created by andrearodriguez on 5/29/16.
@@ -44,8 +43,7 @@ public class DialogAdd extends DialogFragment {
         //get the time when it was added
         String what=mInputWhat.getText().toString();
         long now = System.currentTimeMillis();
-        RealmConfiguration configuration=new RealmConfiguration.Builder(getActivity()).build();
-        Realm.setDefaultConfiguration(configuration);
+
         Realm realm=Realm.getDefaultInstance();
         Drops drop= new Drops(what, now, 0, false);
         realm.beginTransaction();

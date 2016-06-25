@@ -4,20 +4,24 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:background="@drawable/bg_row_drop"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
     
     <ImageButton
         android:layout_width="12dp"
         android:layout_height="12dp"
         android:src="@drawable/ic_drop"
-        android:background="@null"/>
+        android:background="@null"
+        />
     <TextView
+        android:id="@+id/tv_what"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingLeft="22dp"
         android:paddingRight="22dp"
         android:layout_weight="1"/>
     <TextView
+        android:id="@+id/tv_when"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
