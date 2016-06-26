@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.andrearodriguez.bucketdrops.adapters.AdapterDrops;
+import com.example.andrearodriguez.bucketdrops.adapters.AddListener;
 import com.example.andrearodriguez.bucketdrops.adapters.Divider;
 import com.example.andrearodriguez.bucketdrops.beans.Drops;
 import com.example.andrearodriguez.bucketdrops.widgest.BucketRecyclerView;
@@ -33,6 +34,13 @@ public class ActivityMain extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
+            showDialogAdd();
+        }
+    };
+
+    private AddListener mAddListener = new AddListener() {
+        @Override
+        public void add() {
             showDialogAdd();
         }
     };
@@ -66,6 +74,7 @@ public class ActivityMain extends AppCompatActivity {
         mRecycler.showIfEmpty(mEmptyView);
         mAdpter = new AdapterDrops(this, mResults);
 
+        mAdpter.setAddListener(mAddListener);
 //        mRecycler.setAdapter(new AdapterDrops(this, results));
         mRecycler.setAdapter(mAdpter);
         mBtnAdd.setOnClickListener(mBtnAddListener);

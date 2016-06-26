@@ -11,6 +11,7 @@
     android:text="@string/str_add_drop"
     android:textAllCaps="false"
     android:textSize="@dimen/btn_add_font_size"
+    android:id="@+id/btn_footer"
     >
 
 </Button>

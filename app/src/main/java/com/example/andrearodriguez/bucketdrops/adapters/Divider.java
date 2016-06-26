@@ -40,17 +40,21 @@ public class Divider extends RecyclerView.ItemDecoration {
         int count = parent.getChildCount();
 
         for(int i = 0; i< count; i++){
-            View current = parent.getChildAt(i);
-            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) current.getLayoutParams();
-            top = current.getTop() - params.topMargin;
-            botton = top + mDivider.getIntrinsicHeight();
-            mDivider.setBounds(left, top, right, botton);
-            mDivider.draw(c);
+            if(AdapterDrops.FOOTER != parent.getAdapter().getItemViewType(i)) {
+                View current = parent.getChildAt(i);
+                RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) current.getLayoutParams();
+                top = current.getTop() - params.topMargin;
+                botton = top + mDivider.getIntrinsicHeight();
+                mDivider.setBounds(left, top, right, botton);
+                mDivider.draw(c);
+            }
         }
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        super.getItemOffsets(outRect, view, parent, state);
+        if(mOrientatio == LinearLayoutManager.VERTICAL){
+            outRect.set(0,0,0, mDivider.getIntrinsicHeight());
+        }
     }
 }
